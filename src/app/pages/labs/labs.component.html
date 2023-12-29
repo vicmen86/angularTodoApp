@@ -1,30 +1,52 @@
-
-<h1>Hola este es mi primer proyecto.</h1>
-<p>Variables del componente que pueden ser usados</p>
-<h2>
- {{welcome}}
-</h2>
-<ul>
-  <li *ngFor="let task of tasks">
-{{task}}
-  </li>
-</ul>
-<hr />
-<p>Dentro de llaves dobles podemos incluir codigo javascript</p>
-<h2>{{'***'.repeat(44)}}</h2>
-<h3>La suma de 3+3 es {{3+3}}</h3>
-<h3>Hola mi nombre es {{name}} y mi edad es(Variable privada que no puede ser accedida, asi que ponemos un numero alazar) {{30+7}}</h3>
-<hr />
-<p>Cada elemento de html tiene diferentes propiedades.Es la manera que dispone Angular para controlar y modificar las propiedades de los distintos elementos de HTML. Para esto, simplemente utiliza los corchetes [] para poder modificar dinámicamente ese atributo desde el controlador.
-</p>
-<p>Utilidades
-  -El atributo src de la etiqueta <strong>img</strong> para modificar dinámicamente una imagen.
-  -El atributo href de un <strong>a</strong> para modificar un enlace.
-  -El atributo value de un <strong>input</strong> para autocompletar un valor de un formulario.
-  -El atributo disable de un <strong>input</strong> para habilitar/deshabilitar un campo de un formulario.
+<div class="container">
+  <h1>Hola este es mi primer proyecto en Angular.</h1>
+  <h2>
+   {{welcome}}
+  </h2>
+  <ul>
+    <li *ngFor="let task of tasks">
+  {{task}}
+    </li>
+  </ul>
+  <hr />
+  <p>Dentro de llaves dobles podemos incluir codigo javascript</p>
+  <h2>{{'***'.repeat(44)}}</h2>
+  <h3>La suma de 3+3 es {{3+3}}</h3>
+  <h3>Hola mi nombre es {{name}} y mi edad es(Variable privada que no puede ser accedida, asi que ponemos un numero alazar) {{30+7}}</h3>
+  <hr />
+  <p>Cada elemento de html tiene diferentes propiedades.Es la manera que dispone Angular para controlar y modificar las propiedades de los distintos elementos de HTML. Para esto, simplemente utiliza los corchetes [] para poder modificar dinámicamente ese atributo desde el controlador.
   </p>
-  <img [src]="image" alt="La imgen va aqui">
-  <p>Angular puede acceder y modificar los valores de los atributos o propiedades html. Las propiedades van en corchetes y se asignan variables </p>
-  <input type="text" [value]="name">
-  <button [disabled]="disabled">Click me</button>
-  <p>Al boton se le asigno la varible disabled que esta en "true" </p>
+  <p>Utilidades
+    -El atributo src de la etiqueta <strong>img</strong> para modificar dinámicamente una imagen.
+    -El atributo href de un <strong>a</strong> para modificar un enlace.
+    -El atributo value de un <strong>input</strong> para autocompletar un valor de un formulario.
+    -El atributo disable de un <strong>input</strong> para habilitar/deshabilitar un campo de un formulario.
+    </p>
+    <img [src]="image" alt="La imgen va aqui">
+    <p>Angular puede acceder y modificar los valores de los atributos o propiedades html. Las propiedades van en corchetes y se asignan variables </p>
+    <input type="text" [value]="name">
+    <button [disabled]="disabled">Click me</button>
+    <p>Al boton se le asigno la varible disabled que esta en "true", por lo cual esta deshabilitado </p>
+    <h3>{{person.name}} {{person.apellido}}</h3>
+
+    <hr />
+    <p>Event Binding: click y doble click</p>
+    <p>Para eventos utilizamos parentesis en la propiedad y llamamos a la funcion </p>
+    <button (click)="clickHandler()" >CLICK ME</button>
+    <p></p>
+    <button (dblclick)="clickHandler()" >DOBLECLICK ME</button>
+    <hr>
+    <h4>Propiedad (change) de un input</h4>
+    <input type="number" [value]="person.edad" (change)="changeHandler($event)">
+    <h4>Propiedad (keydown) de un input, con cada tecla que se oprima desencadeno un evento</h4>
+    <input type="text" [value]="person.name" (keydown)="keydownHandler($event)">
+    <h4>Propiedad (change) de un input pero con valores de texto, se desencadena el evento solo si se completa y luego enter</h4>
+    <input type="text" [value]="person.edad" (change)="changeHandler($event)">
+    <h4>Propiedad (keydown + teclas), que se desencadena el evento solo con una conjugacion de teclas, en este caso preciona shift</h4>
+    <input type="text" value="" placeholder="Escribe tu nombre..." (keydown.shift)="clickHandlerKey($event)">
+
+    <hr>
+    <h3>Signals</h3>
+  <h3>Hola mi nombre es {{name2()}} y soy una variable signal</h3>
+
+</div>
