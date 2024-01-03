@@ -47,6 +47,7 @@
 
     <hr>
     <h3>Signals</h3>
-  <h3>Hola mi nombre es {{name2()}} y soy una variable signal</h3>
-
+  <h3>Hola mi nombre es {{name2() }} y soy una variable signal, cambio deacuerdo del valor del input de abajo.</h3>
+  <h4>Propiedad (change) con signals</h4>
+  <input type="text" [value]="name2()" (change)="changeHandlerSignal($event)">
 </div>

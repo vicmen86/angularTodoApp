@@ -39,5 +39,10 @@ export class LabsComponent {
     alert(`Hola ${input.value}`);
   }
   //Signals, reactividad para los componentes
-  name2=signal("Juan")
+  name2=signal("Fulano")
+  changeHandlerSignal(event:Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.name2.set(newValue);
+  }
 }
