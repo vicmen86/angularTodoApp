@@ -18,12 +18,12 @@ export class LabsComponent {
   disabled= true;
   image="https://w3schools.com/howto/img_avatar.png";
   //Trabajamos con objetos
-  person={
-    name: "Victory",
+  person=signal({
+    name: "Victor",
     apellido:"Men",
-    edad:37,
+    edad:17,
     avatar:"https://w3schools.com/howto/img_avatar.png"
-  }
+  })
   clickHandler(){
     alert("Hola!");
   }
@@ -44,5 +44,17 @@ export class LabsComponent {
     const input = event.target as HTMLInputElement;
     const newValue = input.value;
     this.name2.set(newValue);
+  }
+  tasks2=signal(["Instalar Angular", "Instalar dependencias y configurar", "Configurar la logia del app", "Revisar errores", "Desplegar app"]);
+  changeAge(event:Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    //Como es un objeto se debe operar con sus metodos...
+    this.person.update(prevState=>{
+      return {
+        ...prevState,
+        edad: parseInt(newValue,10)
+      }
+    });
   }
 }

@@ -7,3 +7,6 @@ Una signal es un envoltorio alrededor de un valor que notifica a los consumidore
 El valor de una signal se lee llamando a su función getter, que permite a Angular rastrear dónde se utiliza la signal.
 
 Las signals pueden ser de escritura o de sólo lectura.
+
+### Iterador de arrays *ngFor y condicional *ngIf 
+Las directivas *ngIf y *ngFor son atributos que podemos agregarle a los elementos HTML que nos permiten en el caso del *ngIf condicionar si dicha marca debe agregarse a la página HTML. La directiva *ngFor nos permite generar muchos elementos HTML repetidos a partir del recorrido de un arreglo de datos.

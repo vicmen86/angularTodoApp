@@ -3,6 +3,7 @@
   <h2>
    {{welcome}}
   </h2>
+  <p>Iterador de arrays *ngFor</p>
   <ul>
     <li *ngFor="let task of tasks">
   {{task}}
@@ -27,7 +28,7 @@
     <input type="text" [value]="name">
     <button [disabled]="disabled">Click me</button>
     <p>Al boton se le asigno la varible disabled que esta en "true", por lo cual esta deshabilitado </p>
-    <h3>{{person.name}} {{person.apellido}}</h3>
+    <h3>{{person().name}} {{person().apellido}}</h3>
 
     <hr />
     <p>Event Binding: click y doble click</p>
@@ -37,11 +38,11 @@
     <button (dblclick)="clickHandler()" >DOBLECLICK ME</button>
     <hr>
     <h4>Propiedad (change) de un input</h4>
-    <input type="number" [value]="person.edad" (change)="changeHandler($event)">
+    <input type="number" [value]="person().edad" (change)="changeHandler($event)">
     <h4>Propiedad (keydown) de un input, con cada tecla que se oprima desencadeno un evento</h4>
     <input type="text" [value]="person.name" (keydown)="keydownHandler($event)">
     <h4>Propiedad (change) de un input pero con valores de texto, se desencadena el evento solo si se completa y luego enter</h4>
-    <input type="text" [value]="person.edad" (change)="changeHandler($event)">
+    <input type="text" [value]="person().edad" (change)="changeHandler($event)">
     <h4>Propiedad (keydown + teclas), que se desencadena el evento solo con una conjugacion de teclas, en este caso preciona shift</h4>
     <input type="text" value="" placeholder="Escribe tu nombre..." (keydown.shift)="clickHandlerKey($event)">
 
@@ -50,4 +51,37 @@
   <h3>Hola mi nombre es {{name2() }} y soy una variable signal, cambio deacuerdo del valor del input de abajo.</h3>
   <h4>Propiedad (change) con signals</h4>
   <input type="text" [value]="name2()" (change)="changeHandlerSignal($event)">
+  <hr>
+  <h3>Array de tareas con Signals</h3>
+  <ul>
+    <p> Total de tareas: {{tasks2().length}}</p>
+    <li *ngFor="let task of tasks2(); index as i">
+  {{i}} {{task}}
+    </li>
+  </ul>
+  <hr>
+  <h3>Condicional *ngIf </h3>
+  <div *ngIf="1!==1">
+    Mi contenido del condicional *ngIF, se muestra si la condicion es veradera!
+  </div>
+  <div *ngIf="name2()==='Fulano'">
+    Hola mi nombre es Fulano
+  </div>
+  <h3>{{'***'.repeat(44)}}</h3>
+  <!-- Condicionales mas complejos -->
+  <h4>Propiedad (change) con signals cambio de edad </h4>
+  <input type="number" [value]="person().edad" (change)="changeAge($event)">
+<hr>
+  <div *ngIf="person().name === 'Victor' && person().edad >18; else elseBlock">
+    Soy Victor y soy un mayor de edad
+  </div>
+  <!-- Else: se ejecuta si el div anterior no cumple la condicion-->
+  <ng-template #elseBlock>
+    Soy Victor y soy menor de edad(la condición anterior no se cumplio)
+  </ng-template>
+  <hr>
+  <h3>Uso de ngSwitch y ngSwitchDefault </h3>
+  <div *ngSwitch="">
+
+  </div>
 </div>
